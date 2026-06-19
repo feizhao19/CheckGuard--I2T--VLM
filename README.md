@@ -2,7 +2,29 @@
 
 In our [CIKM 2024](https://doi.org/10.1145/3627673.3679155) work, we introduced **CheckGuard**, a cross-modal benchmark for check information extraction. This repository extends that research toward **image-to-text (I2T) structured information extraction**: we build richly annotated check-image data and fine-tune a **Vision-Language Model (VLM)** to read check images and produce machine-readable structured outputs.
 
-## Overview
+
+
+## System Overview
+
+<p align="center">
+  <img src="docs/system.png" alt="From Check Image + Instruction to Structured Information" width="70%">
+</p>
+
+**Input:** text instruction + check image  
+**Model:** LLaVA-NeXT 
+**Output:** structured JSON (e.g., `document_type`, `drawer`, `drawee_bank`, `payee`, `date`, `amount_numeric`, `amount_written`, `signature_present`, …)
+
+## Dataset & Annotation Sample
+
+Each sample pairs a check image with field-level supervision. Annotations include semantic labels and normalized bounding boxes `<x, y, w, h>` for regions such as drawer, drawee, payee, date, amount, routing number, and check number.
+
+<p align="center">
+  <img src="docs/vis_img.png" alt="Annotated check sample with field-level bounding boxes" width="70%">
+</p>
+
+
+
+## Introduction
 
 Understanding financial documents requires more than conventional OCR. Models must jointly reason about visual appearance, document layout, handwritten content, and field semantics to accurately recover structured information for downstream financial applications.
 
@@ -25,24 +47,6 @@ Our pipeline has three stages:
      "check_number": "14XX"
    }
    ```
-
-## System Overview
-
-<p align="center">
-  <img src="docs/system.png" alt="From Check Image + Instruction to Structured Information" width="70%">
-</p>
-
-**Input:** text instruction + check image  
-**Model:** LLaVA-NeXT 
-**Output:** structured JSON (e.g., `document_type`, `drawer`, `drawee_bank`, `payee`, `date`, `amount_numeric`, `amount_written`, `signature_present`, …)
-
-## Dataset & Annotation Sample
-
-Each sample pairs a check image with field-level supervision. Annotations include semantic labels and normalized bounding boxes `<x, y, w, h>` for regions such as drawer, drawee, payee, date, amount, routing number, and check number.
-
-<p align="center">
-  <img src="docs/vis_img.png" alt="Annotated check sample with field-level bounding boxes" width="70%">
-</p>
 
 ## Citation
 
