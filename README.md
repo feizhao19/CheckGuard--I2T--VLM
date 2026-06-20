@@ -29,6 +29,7 @@ Each sample pairs a check image with field-level supervision. Annotations includ
   <img src="docs/vis_img.png" alt="Annotated check sample with field-level bounding boxes" width="70%">
 </p>
 
+We designed an automated annotation quality evaluation pipeline that measures image–text alignment between visual fields and their labeled text (e.g., amount, date). Cases below a similarity threshold are flagged for review, helping reduce subjectivity and human error during data annotation and dataset creation.
 
 
 ## Introduction
