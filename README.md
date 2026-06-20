@@ -2,7 +2,14 @@
 
 In our [CIKM 2024](https://doi.org/10.1145/3627673.3679155) work, we introduced **CheckGuard**, a cross-modal benchmark for check information extraction. This repository extends that research toward **image-to-text (I2T) structured information extraction**: we build richly annotated check-image data and fine-tune a **Vision-Language Model (VLM)** to read check images and produce machine-readable structured outputs.
 
+## Table of Contents
 
+- [System Overview](#system-overview)
+- [Dataset & Annotation Sample](#dataset--annotation-sample)
+- [Introduction](#introduction)
+- [Citation](#citation)
+- [Data Access](#data-access)
+- [Install](#install)
 
 ## System Overview
 
