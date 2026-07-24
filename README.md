@@ -1,6 +1,32 @@
-# CheckGuard I2T-VLM: Image-to-Text Structured Information Extraction with Vision-Language Models
+# CheckGuard I2T-VLM
 
-In our [CIKM 2024](https://doi.org/10.1145/3627673.3679155) work, we introduced **CheckGuard**, a cross-modal benchmark for check information extraction. This repository extends that research toward **image-to-text (I2T) structured information extraction**: we build richly annotated check-image data and fine-tune a **Vision-Language Model (VLM)** to read check images and produce machine-readable structured outputs.
+### Image-to-Text Structured Information Extraction with Vision-Language Models
+
+<p align="left">
+  <a href="https://doi.org/10.1145/3627673.3679155"><img src="https://img.shields.io/badge/CIKM-2024-blue" alt="CIKM 2024"></a>
+  <a href="https://doi.org/10.1145/3627673.3679155"><img src="https://img.shields.io/badge/Paper-ACM-black" alt="Paper"></a>
+  <a href="https://huggingface.co/larry5/CheckGuard/tree/main"><img src="https://img.shields.io/badge/Models-HuggingFace-yellow" alt="Hugging Face"></a>
+</p>
+
+
+---
+
+## Intro
+
+Bank checks look simple. They are not. Layouts change from bank to bank. Handwriting sits next to print. Logos and visual identifiers fill the page. Conventional OCR often fails to read them at all.
+
+In our [CIKM 2024](https://doi.org/10.1145/3627673.3679155) work, we introduced **CheckGuard**, which uses Vision-Language Models to extract key information from check images.
+
+This repository continues that work: we annotate check images, fine-tune a **Vision-Language Model (VLM)**, and turn a check image plus an instruction into **structured JSON**.
+
+In short:
+
+> **Check image + instruction → VLM → structured information.**
+
+---
+
+**Paper.** Fei Zhao, Jiawen Chen, Bin Huang, Chengcui Zhang, and Gary Warner. *CheckGuard: Advancing Stolen Check Detection with a Cross-Modal Image-Text Benchmark Dataset.* In *Proceedings of the 33rd ACM International Conference on Information and Knowledge Management (CIKM '24)*, pp. 5425–5429. [DOI](https://doi.org/10.1145/3627673.3679155)
+
 
 ## Table of Contents
 
@@ -30,7 +56,6 @@ Each sample pairs a check image with field-level supervision. Annotations includ
 </p>
 
 We designed an automated annotation quality evaluation pipeline that measures image–text alignment between visual fields and their labeled text (e.g., amount, date). Cases below a similarity threshold are flagged for review, helping reduce subjectivity and human error during data annotation and dataset creation.
-
 
 ## Introduction
 
@@ -66,11 +91,9 @@ Fei Zhao, Jiawen Chen, Bin Huang, Chengcui Zhang, and Gary Warner. 2024. CheckGu
 
 For access, pls contact Dr. Chengcui Zhang (czhang02@uab.edu) and Gary Warner (gar@uab.edu). Thanks. 
 
-
 ## Install
 
 If you are not using Linux, do *NOT* proceed, see instructions for [macOS](https://github.com/haotian-liu/LLaVA/blob/main/docs/macOS.md) and [Windows](https://github.com/haotian-liu/LLaVA/blob/main/docs/Windows.md).
-
 
 1. Install Package
 ```Shell
@@ -106,7 +129,6 @@ conda install nb_conda_kernels
 ## Data Loading Code
 
 - The code for data loading is provided in the `data_visualization/data_loading.ipynb` file.
-
 
 ## Data Visualization Code
 
@@ -144,15 +166,12 @@ conda install nb_conda_kernels
     ```
 - The data generation code is provided in `cikm-resource/generate_json/other_class.ipynb` file.
 
-
 ## PEFT Command for fine-tuning:
-
 
 ```Shell
 
 # fine-tuning mistral model with two gpus
 bash scripts_peft/mistral/lora/llava-lora-mistral-r128a256/wholeimage/bank_no/finetune_lora_llava_mistral.sh "0,1"  
-
 
 ```
 
@@ -162,3 +181,5 @@ Thanks to the authors of [LLaVA-1.5](https://github.com/haotian-liu/LLaVA) for t
 
 - [Instruction Tuning with GPT-4](https://github.com/Instruction-Tuning-with-GPT-4/GPT-4-LLM)
 - [LLaVA-Med: Training a Large Language-and-Vision Assistant for Biomedicine in One Day](https://github.com/microsoft/LLaVA-Med)
+
+
